@@ -2,10 +2,80 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>小白的网站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 基础示例</title>
 </head>
 <body>
-    <h1>欢迎网站</h1>
-    <p>这是我的个人网站，很高兴与你分享我的内容。</p>
+
+    <!-- 标题 -->
+    <h1>欢迎来到我的 HTML 页面</h1>
+
+    <!-- 段落 -->
+    <p>这是一个基本的 HTML 示例，包含文本、图片、列表、表格、表单和超链接。</p>
+
+    <!-- 插入图片 -->
+    <h2>图片展示</h2>
+    <img src="example.jpg" alt="示例图片" width="300">
+
+    <!-- 无序列表 -->
+    <h2>无序列表（兴趣爱好）</h2>
+    <ul>
+        <li>阅读</li>
+        <li>编程</li>
+        <li>旅行</li>
+    </ul>
+
+    <!-- 有序列表 -->
+    <h2>有序列表（学习步骤）</h2>
+    <ol>
+        <li>学习 HTML</li>
+        <li>掌握 CSS</li>
+        <li>熟悉 JavaScript</li>
+    </ol>
+
+    <!-- 表格 -->
+    <h2>人员信息表</h2>
+    <table border="1">
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>张三</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>李四</td>
+            <td>30</td>
+        </tr>
+    </table>
+
+    <!-- 表单 -->
+    <h2>用户反馈</h2>
+    <form action="submit.html" method="get">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">邮箱：</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="message">反馈：</label><br>
+        <textarea id="message" name="message" rows="4" cols="30"></textarea><br><br>
+
+        <input type="submit" value="提交">
+    </form>
+
+    <!-- 跳转链接 -->
+    <h2>更多内容</h2>
+    <p>点击下面的链接访问更多页面：</p>
+    <ul>
+        <li><a href="image.html">图片页面</a></li>
+        <li><a href="list.html">列表页面</a></li>
+        <li><a href="form.html">表单页面</a></li>
+    </ul>
+
 </body>
 </html>
