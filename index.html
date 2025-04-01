@@ -1,109 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大运超人的网页</title>
+    <link rel="stylesheet" href="css.css">
+    <title>Styled Page</title>
 </head>
-<body background="d8646bb0-d0c6-49e2-9c7a-9abfce74b6f6.png">
-    <!-- audio 标签用于嵌入音频 -->
-    <audio controls>
-        <!-- src 属性指定音频文件的路径 -->
-        <source src="“一演丁真 便入戏 得太深”——丁真能量单曲《群丁》_音频.mp4" type="audio/mpeg">
-        <!-- 若浏览器不支持 MP3 格式，可添加其他格式 -->
-        <source src="“一演丁真 便入戏 得太深”——丁真能量单曲《群丁》_音频.mp4" type="audio/ogg">
-        <!-- 当浏览器不支持 audio 元素时显示的提示信息 -->
-        你的浏览器不支持音频播放。
-    </audio>
 
-    <!-- 标题 -->
-    <h1>欢迎来到大运超人的网页</h1>
+<body>
+    <h1>标签选择器的标题</h1>
+    <p class="intro">类选择器的段落</p>
+    <p id="special">id选择器的段落</p>
 
-    <!-- 段落 -->
-    <p>这是我个人的网页有我的一些爱好和相关信息。</p>
+    <div class="container">
+        <a href="https://www.example.com">后代1</a>
+        <a href="https://www.sample.com">后代2</a>
+    </div>
 
-    <!-- 插入图片 -->
-    <h2>哼！想逃？</h2>
-    <img src="d0a7da8a-baa1-4a2a-805a-558d38e7ede4.png" alt="牢大" width="300">
+    <h1>flex的下两个超链接</h1>
+    <div class="flex-container">
+        <div class="rect-box"><a href="https://www.google.com">函数图</a></div>
+        <div class="circle-box"><a href="dayunchaoren.me">我的网站</a></div>
+    </div>
 
-    <!-- 无序列表 -->
-    <h2>兴趣爱好</h2>
-    <ul>
-        <li>打游戏</li>
-        <ul>
-            <li>FS社全家桶</li>
-            <li>R星全家桶</li>
-            <li>B社全家桶</li>
-        </ul>
-        <li>编程</li>
-        <li>搞电子设备</li>
-    </ul>
-
-    <!-- 有序列表 -->
-    <h2>我自己的学习步骤</h2>
-    <ol>
-        <li>思考理解</li>
-        <li>做题感受</li>
-        <li>用自己的语言说出</li>
-    </ol>
-
-    <!-- 表格 -->
-    <h2>宿舍人员</h2>
-    <table border="1">
-        <tr>
-            <th>编号</th>
-            <th>姓名</th>
-        </tr>
-        <tr>
-            <td>0213</td>
-            <td>李阳阳</td>
-        </tr>
-        <tr>
-            <td>0214</td>
-            <td>高丁杰</td>
-        </tr>
-        <tr>
-            <td>0215</td>
-            <td>芦亚军</td>
-        </tr>
-        <tr>
-            <td>0216</td>
-            <td>崔俊</td>
-        </tr>
-    </table>
-
-    <!-- 表单 -->
-    <h2>日期选择</h2>
-    <form action="#" method="post">
-        <label for="selectedDate">选择日期：</label>
-        <input type="date" id="selectedDate" name="selectedDate">
-        <input type="submit" value="提交日期">
-    </form>
-    <!-- video 标签用于嵌入视频 -->
-    <video controls>
-        <!-- src 属性指定视频文件的路径 -->
-        <source src="魂5特工.mp4" type="video/mp4">
-        <!-- 若浏览器不支持 MP4 格式，可添加其他格式 -->
-        <source src="魂5特工.mp4" type="video/webm">
-        <!-- 当浏览器不支持 video 元素时显示的提示信息 -->
-        你的浏览器不支持视频播放。
-    </video>
-    <h2>目前学习进度</h2>
-    <b>python：函数（以学完字典）</b>
-    <i>java:运算符</i>
-    <strong>单片机:第二章还需要练习记住RAM中的地址和SFR地址及其功能，还要去练习pro和mui两个一个用来模拟芯片，一个用来模拟外围电路还需要下载keil用来编程电路.</strong>
-    <em>概率论:贝叶斯概率和全概率</em>
-    <p>高数：基础复习：代数式</p>
-
-    <!-- 跳转链接 -->
-    <h2>个人相关</h2>
-    <p>点击下面的链接访问更多页面：</p>
-    <ul>
-        <li><a href="https://www.bilibili.com/video/BV1Y7SWYpERP/?spm_id_from=333.337.search-card.all.click">我最喜欢的音乐之一</a></li>
-        <li><a href="https://www.luogu.com.cn/problem/P1161">日常练习的网页</a></li>
-        <li><a href="https://github.com/xiaobaigenier/xiaobaigenier.github.io/edit/main/index.html#L18C35">我的仓库</a></li>
-    </ul>
-    <h1>待到秋来九月八，我花开后百花杀</h1>
-
+    <div> 
+        <p class="dong_hua_wen_ben">小动画</p>
+        <img class="animated-element" src="R-C.jpg" alt="插入图片">
+    </div>
 </body>
-</html>
+
+</html>    

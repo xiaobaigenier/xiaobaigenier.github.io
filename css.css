@@ -1,0 +1,150 @@
+/* 通用选择器 */
+* {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    /* 元素选择器 */
+    body {
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        background-image: url('liu.gif'); 
+        background-size: cover;
+        background-position: center; 
+        background-repeat: no-repeat; /
+    }
+    
+    h1 {
+        color: #05a00d;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    
+    /* 类选择器 */
+    .intro {
+        color: #666;
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    /* id 选择器 */
+    #special {
+        color: #ff6600;
+        font-style: italic;
+        text-align: center;
+        transition: transform 0.5s ease;
+    }
+    
+    /* 后代选择器 */
+    .container a {
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+        color:#ff0000;
+        text-decoration: none;
+    }
+
+    .dong_hua_wen_ben{
+        color:#ff6600;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    
+    .container a:hover {
+        text-decoration: underline;
+    }
+    
+    /* 子元素选择器 */
+    .flex-container > div {
+        padding: 20px;
+    }
+    
+    /* 伪选择器 */
+    a:visited {
+        color: #800080;
+    }
+    
+    /* 兄弟选择器 */
+    h1 + p {
+        margin-top: -10px;
+    }
+    
+    /* 群组选择器 */
+    .rect-box,
+    .circle-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .rect-box {
+        background-color: #007BFF;
+        width: 200px;
+        height: 100px;
+        transition: transform 0.3s ease;
+    }
+    
+    .rect-box:hover {
+        transform: scale(1.1);
+    }
+    
+    .circle-box {
+        background-color: #28a745;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+    }
+        
+    .flex-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+    }
+    
+    /* 动画 */
+    .animated-element {
+        text-align: right;
+        font-size: 1px;
+        color: #ff0000;
+        animation: fadeInOut 5s infinite;
+        margin: 20px 100px 20px 320px; 
+    }
+    img:hover {
+    
+        /* 放大比例调整为 1.2 倍 */
+        transform: scale(1.2);
+    }
+    
+    .intro:hover {
+        transform: scale(1.2);
+    }
+    
+    #special:hover {
+        transform: rotate(360deg);
+    }
+    
+    .rect-box:hover {
+        transform: rotate(360deg);
+    }
+    
+    .circle-box:hover {
+        transform: rotate(360deg);
+    }
+    .dong_hua_wen_ben:hover{
+        transform: rotate(360deg);
+    }
+    
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }    
