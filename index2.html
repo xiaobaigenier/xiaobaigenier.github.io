@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算器</title>
+  <style>
+    /* 样式可以根据需要进一步调整 */
+    #calculator {
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+    }
+    .calculator_hd input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: right;
+      font-size: 18px;
+      background-color: #fff;
+    }
+    .calculator_bd {
+      padding: 10px;
+    }
+    .calculator_table li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .cal_btn {
+      width: 45%;
+      padding: 15px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #e0e0e0;
+      font-size: 18px;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+    .cal_btn:hover {
+      background-color: #d0d0d0;
+    }
+    .cal_btn:active {
+      background-color: #c0c0c0;
+    }
+    .cal_btn.cal_btn_gray {
+      background-color: #d0d0d0;
+    }
+    .cal_btn.cal_btn_gray:hover {
+      background-color: #c0c0c0;
+    }
+    .cal_btn.cal_btn_gray:active {
+      background-color: #b0b0b0;
+    }
+    .cal_btn.cal_btn_bla {
+      background-color: #333;
+      color: white;
+    }
+    .cal_btn.cal_btn_bla:hover {
+      background-color: #222;
+    }
+    .cal_btn.cal_btn_bla:active {
+      background-color: #111;
+    }
+  </style>
+</head>
+<body>
+  <div id="calculator">
+    <div class="calculator_hd">
+      <input type="text" id="resultIpt" readonly class="resultIpt" value="0" size="17" maxlength="17">
+    </div>
+    <div class="calculator_bd">
+      <ul class="calculator_table">
+        <li>
+          <a class="cal_btn" href="javascript:;" id="simpleDel">退格</a>
+          <a class="cal_btn" href="javascript:;" id="simpleClearAllBtn">清屏</a>
+        </li>
+        <li>
+          <a class="cal_btn" href="javascript:;" id="simple7">7</a>
+          <a class="cal_btn" href="javascript:;" id="simple8">8</a>
+          <a class="cal_btn" href="javascript:;" id="simple9">9</a>
+          <a class="cal_btn cal_btn_gray" href="javascript:;" id="simpleDivi">÷</a>
+        </li>
+        <li>
+          <a class="cal_btn" href="javascript:;" id="simple4">4</a>
+          <a class="cal_btn" href="javascript:;" id="simple5">5</a>
+          <a class="cal_btn" href="javascript:;" id="simple6">6</a>
+          <a class="cal_btn cal_btn_gray" href="javascript:;" id="simpleMulti">x</a>
+        </li>
+        <li>
+          <a class="cal_btn" href="javascript:;" id="simple1">1</a>
+          <a class="cal_btn" href="javascript:;" id="simple2">2</a>
+          <a class="cal_btn" href="javascript:;" id="simple3">3</a>
+          <a class="cal_btn cal_btn_gray" href="javascript:;" id="simpleSubtr">-</a>
+        </li>
+        <li>
+          <a class="cal_btn" href="javascript:;" id="simple0">0</a>
+          <a class="cal_btn" href="javascript:;" id="simpleDot">.</a>
+          <a class="cal_btn" href="javascript:;" id="simplePlusMinus">+/-</a>
+          <a class="cal_btn cal_btn_bla" href="javascript:;" id="simpleAdd">+</a>
+        </li>
+        <li>
+          <a class="cal_btn" href="javascript:;" id="simpleEqual">=</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    const resultIpt = document.getElementById('resultIpt');
+    let currentInput = '';
+    let currentOperator = '';
+    let previousInput = '';
+
+    function updateDisplay() {
+      resultIpt.value = currentInput || '0';
+    }
+
+    function clearAll() {
+      currentInput = '';
+      currentOperator = '';
+      previousInput = '';
+      updateDisplay();
+    }
+
+    function removeLastDigit() {
+      currentInput = currentInput.slice(0, -1);
+      updateDisplay();
+    }
+
+    function appendNumber(number) {
+      if (currentInput === '0') {
+        currentInput = number;
+      } else {
+        currentInput += number;
+      }
+      updateDisplay();
+    }
+
+    function appendDecimal() {
+      if (!currentInput.includes('.')) {
+        currentInput += '.';
+      }
+      updateDisplay();
+    }
+
+    function toggleSign() {
+      currentInput = (parseFloat(currentInput) * -1).toString();
+      updateDisplay();
+    }
+
+    function setOperator(operator) {
+      if (currentInput === '') return;
+      if (previousInput !== '') {
+        compute();
+      }
+      currentOperator = operator;
+      previousInput = currentInput;
+      currentInput = '';
+    }
+
+    function compute() {
+      let computation;
+      const prev = parseFloat(previousInput);
+      const current = parseFloat(currentInput);
+      if (isNaN(prev) || isNaN(current)) return;
+      switch (currentOperator) {
+        case '+':
+          computation = prev + current;
+          break;
+        case '-':
+          computation = prev - current;
+          break;
+        case '*':
+          computation = prev * current;
+          break;
+        case '/':
+          computation = prev / current;
+          break;
+        default:
+          return;
+      }
+      currentInput = computation.toString();
+      currentOperator = undefined;
+      previousInput = '';
+      updateDisplay();
+    }
+
+
+
+    document.getElementById('simpleDel').addEventListener('click', removeLastDigit);
+    document.getElementById('simpleClearAllBtn').addEventListener('click', clearAll);
+    document.getElementById('simpleEqual').addEventListener('click', compute);
+    document.getElementById('simpleAdd').addEventListener('click', () => setOperator('+'));
+    document.getElementById('simpleSubtr').addEventListener('click', () => setOperator('-'));
+    document.getElementById('simpleMulti').addEventListener('click', () => setOperator('*'));
+    document.getElementById('simpleDivi').addEventListener('click', () => setOperator('/'));
+    document.getElementById('simple0').addEventListener('click', () => appendNumber('0'));
+    document.getElementById('simple1').addEventListener('click', () => appendNumber('1'));
+    document.getElementById('simple2').addEventListener('click', () => appendNumber('2'));
+    document.getElementById('simple3').addEventListener('click', () => appendNumber('3'));
+    document.getElementById('simple4').addEventListener('click', () => appendNumber('4'));
+    document.getElementById('simple5').addEventListener('click', () => appendNumber('5'));
+    document.getElementById('simple6').addEventListener('click', () => appendNumber('6'));
+    document.getElementById('simple7').addEventListener('click', () => appendNumber('7'));
+    document.getElementById('simple8').addEventListener('click', () => appendNumber('8'));
+    document.getElementById('simple9').addEventListener('click', () => appendNumber('9'));
+    document.getElementById('simpleDot').addEventListener('click', appendDecimal);
+    document.getElementById('simplePlusMinus').addEventListener('click', toggleSign);
+  </script>
+</body>
+</html>
